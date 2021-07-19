@@ -1,10 +1,10 @@
 # [Advanced CSS Course](https://www.udemy.com/advanced-css-and-sass/?couponCode=GITHUB4) by [Jonas Schmedtmann](https://github.com/jonasschmedtmann) - 28 hours
 
-#### This repo contains starter files and the finished project files for all the projects contained in the course.
+_This repo contains starter files and the finished project files for all the projects contained in the course._
 
-#### Slides also available [for download](slides-students-C04.pdf) to make it easier to follow along the theory lectures.
+_Slides also available [for download](slides-students-C04.pdf) to make it easier to follow along the theory lectures._
 
-## Course Content (as found in Udemy course description):
+# Course Content (as found in Udemy course description):
 
 ### Modern cutting-edge CSS techniques:
 
