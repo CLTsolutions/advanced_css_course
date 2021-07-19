@@ -1,8 +1,54 @@
 /*
 COLORS:
 
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
+Light: #7ed56f
+Medium: #55c57a
+Dark: #28b485
 
 */
+
+/* makes every browser render page the exact same way */
+/* normalize css is not really necessary */
+/* universal selector selects every element on the pg and applies declarations to them */
+/* - this allows us to start clean (w/out browser adding margin or padding */
+* {
+  margin: 0;
+  padding: 0;
+  /* changes box model so borders and padding no longer added to h and w specified for a box */
+  box-sizing: border-box;
+}
+
+/* font in body because props related to fonts are usually inherited */
+/* font-family set on body element so all child elements are inherited */
+/* better practice to put font inside body */
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  /* bigger than predefined line height */
+  line-height: 1.7;
+  color: #777;
+  /* white border around entire webpage */
+  padding: 30px;
+}
+
+.header {
+  /* every point heigh of element should be 95% of viewport height */
+  height: 95vh;
+  /* to specify gradients always use bg img property */
+  /* two bg image sone on top of the other */
+  /*  can specify two directions */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.8),
+      rgba(40, 180, 131, 0.8)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  /* ensures whatever viewport size, img will always stay at top of container */
+  background-position: top;
+  /* specify what part of the img we want visible */
+  /* moves clockwise (from top left corner) */
+  /* 0 0 we don't want the top left corner to change */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
