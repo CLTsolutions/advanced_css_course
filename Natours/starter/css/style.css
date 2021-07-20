@@ -1,9 +1,9 @@
 /*
 COLORS:
 
-Light: #7ed56f
-Medium: #55c57a
-Dark: #28b485
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
 
 */
 
@@ -51,4 +51,46 @@ body {
   /* moves clockwise (from top left corner) */
   /* 0 0 we don't want the top left corner to change */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative;
+}
+
+.logo-box {
+  position: absolute;
+  /* where does 40px starts? ref is parent element with position set to relative */
+  /*  - header is parent element */
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+  /* width will scale accordingly by browser (could do vice versa) */
+}
+
+.text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: red;
+}
+
+.heading-primary {
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  /* block width occupies entire line avl and create line breaks */
+  /* span is inline element by default */
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
 }

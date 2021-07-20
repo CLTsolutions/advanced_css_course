@@ -16,6 +16,20 @@
     <title>Natours | Exciting tours for adventurous people</title>
   </head>
   <body>
-    <header class="header">Some text...</header>
+    <header class="header">
+      <!-- because img is inline elemenet, better practice to put inside container -->
+      <!-- - then position container where element lives -->
+      <div class="logo-box">
+        <img src="img/logo-white.png" alt="Logo" class="logo" />
+      </div>
+      <div class="text-box">
+        <!-- h1 is important for SEO so put title of webpage inside -->
+        <h1 class="heading-primary">
+          <!-- a span tag styles text differently -->
+          <span class="heading-primary-main">Outdoors</span>
+          <span class="heading-primary-sub">is where life happens</span>
+        </h1>
+      </div>
+    </header>
   </body>
 </html>
