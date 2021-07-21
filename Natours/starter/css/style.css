@@ -69,9 +69,11 @@ body {
 
 .text-box {
   position: absolute;
-  top: 50%;
+  /* top and left are in relation to parent element */
+  top: 40%;
   left: 50%;
-  background-color: red;
+  /* these 50% are no longer in relation to parent element but the element itself */
+  transform: translate(-50%, -50%);
 }
 
 .heading-primary {
