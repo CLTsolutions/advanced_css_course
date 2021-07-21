@@ -79,6 +79,10 @@ body {
 .heading-primary {
   color: #ffffff;
   text-transform: uppercase;
+
+  /* determines whether back part is hidden or shown to user */
+  /* helps with 'shaky' animation */
+  backface-visibility: hidden;
 }
 
 .heading-primary-main {
@@ -88,6 +92,12 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /* animation-delay: 3s; */
+  /* animation-iteration-count: 3; */
 }
 
 .heading-primary-sub {
@@ -95,4 +105,61 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+
+  animation: moveInRight 1s ease-out;
+  /* animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out; */
+}
+
+/************************
+* A N I M A T I O N S *
+*************************/
+
+/* header primary main */
+/* specify what you want to happen in each moment in time of event */
+/* for browser performance best to animate only opacity and transform */
+@keyframes moveInLeft {
+  /* start */
+  0% {
+    opacity: 0;
+    /* 'X' to animate in x direction */
+    /* transform: translateX(-100px) rotate(50deg); */
+    transform: translateX(-100px);
+  }
+
+  /* 60% {
+    transform: rotate(120deg);
+  } */
+
+  /* can put stuff in the middle */
+  /* positive values go to the right side */
+  /* negative values go to the left side */
+  80% {
+    transform: translateX(10px);
+  }
+
+  /* finish */
+  100% {
+    opacity: 1;
+    /* 0 allows it to look how it does before animation */
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  /* start */
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
