@@ -74,6 +74,7 @@ body {
   left: 50%;
   /* these 50% are no longer in relation to parent element but the element itself */
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
@@ -83,6 +84,7 @@ body {
   /* determines whether back part is hidden or shown to user */
   /* helps with 'shaky' animation */
   backface-visibility: hidden;
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -110,6 +112,45 @@ body {
   /* animation-name: moveInRight;
   animation-duration: 1s;
   animation-timing-function: ease-out; */
+}
+
+/* :link is psuedo class */
+/* - special state of selector */
+/* psuedo classes used to style elements under special condition */
+/*  :link special state of selector when it's an anchor element*/
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  /* box model works as if element is normal block element */
+  /* always want to do if want to give padding or height or width to elements */
+  /* btn is centered up in text-box (above) */
+  display: inline-block;
+  border-radius: 100px;
+  /* which properties to animate? all if we don't want to write it out or not sure */
+  /* transition property on initial state */
+  transition: all, 0.2s;
+}
+
+.btn:hover {
+  /* neg moves up and positive moves down (y is top to bottom) */
+  transform: translateY(-3px);
+  /* box-shadow can take several props */
+  /* - offset in x direction, y, blur, color */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  /* translate in relation to initial link state above */
+  transform: translateY(-1px);
+  /* changing values so when user presses button, shadow changes from above values */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
 }
 
 /************************
