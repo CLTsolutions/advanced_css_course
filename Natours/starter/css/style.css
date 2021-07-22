@@ -114,9 +114,9 @@ body {
   animation-timing-function: ease-out; */
 }
 
-/* :link is psuedo class */
+/* :link is pseudo class */
 /* - special state of selector */
-/* psuedo classes used to style elements under special condition */
+/* pseudo classes used to style elements under special condition */
 /*  :link special state of selector when it's an anchor element*/
 .btn:link,
 .btn:visited {
@@ -131,6 +131,7 @@ body {
   /* which properties to animate? all if we don't want to write it out or not sure */
   /* transition property on initial state */
   transition: all, 0.2s;
+  position: relative;
 }
 
 .btn:hover {
@@ -151,6 +152,47 @@ body {
 .btn-white {
   background-color: #fff;
   color: #777;
+}
+
+/* pseudo elements allows us to style certain parts of elements */
+/* ::after acts like virtual element right after element we are selecting */
+/* - we can then style this element */
+/* ::after pseudo element treated as child */
+.btn::after {
+  /* must specific content or else ::after won't appear */
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  /* absolute must have reference */
+  /* - reference is first element with relative position it can find */
+  /* - we want this element to be the btn instead of header so must set btn position: relative */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* transition property on initial state */
+  transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  /* 2 is double size from before */
+  /* scale without x or y scales entire element */
+  transform: scaleX(1.4) scaleY(1.6);
+  /* opacity 0 sets something to zero. Allows it to fade out */
+  opacity: 0;
+}
+
+.btn-animated {
+  /* .75s is a delay */
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  /* automatically apply 0% styles before animation starts */
+  animation-fill-mode: backwards;
 }
 
 /************************
@@ -197,6 +239,20 @@ body {
 
   80% {
     transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  /* start */
+  /* animation 0% styles applied before animations starts. */
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
   }
 
   100% {
