@@ -4,18 +4,37 @@ COLORS:
 Light green: #7ed56f
 Medium green: #55c57a
 Dark green: #28b485
-
 */
 
 /* makes every browser render page the exact same way */
 /* normalize css is not really necessary */
 /* universal selector selects every element on the pg and applies declarations to them */
 /* - this allows us to start clean (w/out browser adding margin or padding */
-* {
+*,
+/* only real elements get inherit behavior while pseudo elements do not so must be included */
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   /* changes box model so borders and padding no longer added to h and w specified for a box */
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
+  /* when we can use inheritance, we should instead of universal selector */
+  /* Forcing inheritance by setting box-sizing property to each element on the page */
+  box-sizing: inherit;
+}
+
+/* setting root font size so we can change all over measures to rems */
+/* changing global setting (font size) */
+/* root font size set in html selector */
+/* why 10? 1 rem = 10px (to make life easier to replace px units) */
+html {
+  /* shouldn't be px because changing overrides browsers font size setting */
+  /* - if keeping px, people can't change default font size */
+  /* px is bad practice */
+  /* font-size: 10px; */
+  /* 100% is 16px (default) */
+  /* We want 10px so 10/16 is 62.5% */
+  font-size: 62.5%;
 }
 
 /* font in body because props related to fonts are usually inherited */
@@ -24,12 +43,15 @@ Dark green: #28b485
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   /* bigger than predefined line height */
   line-height: 1.7;
   color: #777;
   /* white border around entire webpage */
-  padding: 30px;
+  /* padding: 30px; */
+  padding: 3rem;
+  /* better practice (see inheritance notes above in universal selector */
+  box-sizing: border-box;
 }
 
 .header {
@@ -58,12 +80,15 @@ body {
   position: absolute;
   /* where does 40px starts? ref is parent element with position set to relative */
   /*  - header is parent element */
-  top: 40px;
-  left: 40px;
+  /* top: 40px; */
+  /* left: 40px; */
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px;
+  /* height: 35px; */
+  height: 3.5rem;
   /* width will scale accordingly by browser (could do vice versa) */
 }
 
@@ -84,16 +109,19 @@ body {
   /* determines whether back part is hidden or shown to user */
   /* helps with 'shaky' animation */
   backface-visibility: hidden;
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
+  margin-bottom: 6rem;
 }
 
 .heading-primary-main {
   /* block width occupies entire line avl and create line breaks */
   /* span is inline element by default */
   display: block;
-  font-size: 60px;
+  /* font-size: 60px; */
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  /* letter-spacing: 35px; */
+  letter-spacing: 3.5rem;
 
   animation-name: moveInLeft;
   animation-duration: 1s;
@@ -104,9 +132,11 @@ body {
 
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
+  /* font-size: 20px; */
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  /* letter-spacing: 17.4px; */
+  letter-spacing: 1.75rem;
 
   animation: moveInRight 1s ease-out;
   /* animation-name: moveInRight;
@@ -122,16 +152,19 @@ body {
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  /* padding: 15px 40px; */
+  padding: 1.5rem 4rem;
   /* box model works as if element is normal block element */
   /* always want to do if want to give padding or height or width to elements */
   /* btn is centered up in text-box (above) */
   display: inline-block;
-  border-radius: 100px;
+  /* border-radius: 100px; */
+  border-radius: 10rem;
   /* which properties to animate? all if we don't want to write it out or not sure */
   /* transition property on initial state */
   transition: all, 0.2s;
   position: relative;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
@@ -139,14 +172,16 @@ body {
   transform: translateY(-3px);
   /* box-shadow can take several props */
   /* - offset in x direction, y, blur, color */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, .2); */
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
   /* translate in relation to initial link state above */
   transform: translateY(-1px);
   /* changing values so when user presses button, shadow changes from above values */
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 5px 10px rgba(0, 0, 0, .2); */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
@@ -164,7 +199,8 @@ body {
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  /* border-radius: 100px; */
+  border-radius: 10rem;
   /* absolute must have reference */
   /* - reference is first element with relative position it can find */
   /* - we want this element to be the btn instead of header so must set btn position: relative */
@@ -208,7 +244,8 @@ body {
     opacity: 0;
     /* 'X' to animate in x direction */
     /* transform: translateX(-100px) rotate(50deg); */
-    transform: translateX(-100px);
+    /* transform: translateX(-100px); */
+    transform: translateX(-10rem);
   }
 
   /* 60% {
@@ -219,7 +256,8 @@ body {
   /* positive values go to the right side */
   /* negative values go to the left side */
   80% {
-    transform: translateX(10px);
+    /* transform: translateX(10px); */
+    transform: translateX(1rem);
   }
 
   /* finish */
@@ -234,11 +272,13 @@ body {
   /* start */
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    /* transform: translateX(100px); */
+    transform: translateX(10rem);
   }
 
   80% {
-    transform: translateX(-10px);
+    /* transform: translateX(-10px); */
+    transform: translateX(-1rem);
   }
 
   100% {
@@ -252,7 +292,8 @@ body {
   /* animation 0% styles applied before animations starts. */
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    /* transform: translateY(30px); */
+    transform: translateY(3rem);
   }
 
   100% {
