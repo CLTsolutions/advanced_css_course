@@ -1,9 +1,11 @@
+/* moved code into main.scss (easier to convert original css into Sass */
+/* change CSS to styles.css (this file is for notes only) */
+
 /*
 COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
+Light: #7ed56f
+Medium: #55c57a
+Dark: #28b485
 */
 
 /* makes every browser render page the exact same way */
