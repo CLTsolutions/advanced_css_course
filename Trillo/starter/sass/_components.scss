@@ -5,25 +5,81 @@
 // ======= LOGO =========
 .logo {
   height: 3.25rem;
+  margin-left: 3rem;
 }
 
 //======== SEARCH ==========
 .search {
+  // for width
+  flex: 0 0 40%;
+
+  // flex item becoming flex container
+  // nested flexboxes
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   &__input {
+    // input element doesn't inherit global fonts
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    padding: 0.7rem 2rem;
+    // using pixels because it just needs to be a high num
+    border-radius: 100px;
+    width: 90%;
+    transition: all 0.2s;
+    // so button can sit on top of input
+    margin-right: -3.25rem;
+
+    &:focus {
+      outline: none;
+      // when input element is focused its width increases from 90% to 100%
+      width: 100%;
+      background-color: var(--color-grey-light-3);
+    }
+
+    // works only in chrome and safari (webkit)
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--color-grey-light-4);
+    }
+  }
+
+  // adjacent selector because they're sibs
+  &__input:focus + &__button {
+    background-color: var(--color-grey-light-3);
   }
 
   &__button {
+    border: none;
+    background-color: var(--color-grey-light-2);
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      // so button moves down when clicked
+      transform: translateY(2px);
+    }
   }
 
   &__icon {
     //   formatting a svg icon by setting h and w
     height: 2rem;
     width: 2rem;
+    // changing button color using fill;
+    fill: var(--color-grey-dark-3);
   }
 }
 
 //======== USER NAVIGATION ==========
 .user-nav {
+  background-color: greenyellow;
+
   &__icon-box {
   }
 
