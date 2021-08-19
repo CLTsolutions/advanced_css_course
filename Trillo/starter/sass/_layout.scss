@@ -1,0 +1,39 @@
+.container {
+  // max width so container can decrease if not enough space to display 120rem
+  // if viewport is less than 1200px, it occupies 100% of avl width.
+  max-width: 120rem;
+  //   center inside parent element (body)
+  margin: 8rem auto;
+  background-color: var(--color-grey-light-2);
+  box-shadow: var(--shadow-dark);
+
+  //   for testing purposes
+  min-height: 50rem;
+}
+
+.header {
+  height: 7rem;
+  background-color: #fff;
+  border-bottom: var(--color-grey-light-2);
+}
+
+// content is the flex container
+// - it's holding two elements we want side by side
+.content {
+  display: flex;
+}
+
+.sidebar {
+  background-color: var(--color-grey-dark-1);
+  // flexbox width is flex-basis
+  // shorthand flex property
+  // - grow, shrink, basis
+  flex: 0 0 18%;
+}
+
+.hotel-view {
+  background-color: #fff;
+  background-color: orangered;
+  // this allows element to grow as much as it can
+  flex: 1;
+}
