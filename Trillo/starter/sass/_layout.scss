@@ -34,11 +34,17 @@
   // shorthand flex property
   // - grow, shrink, basis
   flex: 0 0 18%;
+  // to push legal to the bottom
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .hotel-view {
   background-color: #fff;
   background-color: orangered;
+  // test
+  height: 80rem;
   // this allows element to grow as much as it can
   flex: 1;
 }
