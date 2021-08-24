@@ -116,7 +116,7 @@
     background-color: var(--color-primary);
     color: #fff;
     // in relation to position relative above
-    // flexbox isn't good practice for adjustin notifications
+    // flexbox isn't good practice for adjusting notifications
     position: absolute;
     top: 1.5rem;
     right: 1.1rem;
@@ -224,4 +224,58 @@
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem;
+}
+
+//======== GALLERY ==========
+
+.gallery {
+  display: flex;
+
+  &__photo {
+    // want flexible elements for responsive design
+    // must always define a width and height so img stays fluid
+    width: 100%;
+    // to avoid having small space underneath img
+    //  should always be block if you don't want white space underneath img
+    display: block;
+  }
+}
+
+//======== HOTEL OVERVIEW ==========
+.overview {
+  display: flex;
+
+  &__heading {
+  }
+
+  &__stars {
+    // grow to occupy all avl space
+    // flex is not ideal because element should be size of content
+    // flex: 1;
+    // now only occupying space it needs and then adds margin
+    margin-right: auto;
+    // background-color: orangered;
+  }
+
+  &__icon-star,
+  &__icon-location {
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: var(--color-primary);
+  }
+
+  &__location {
+    // below is same as above in &__stars
+    // margin-left: auto;
+    // background-color: orangered;
+  }
+
+  &__rating {
+  }
+
+  &__rating-average {
+  }
+
+  &__rating-count {
+  }
 }
