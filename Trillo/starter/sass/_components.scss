@@ -141,15 +141,80 @@
 
 //======== SIDE NAVIGATION ==========
 .side-nav {
+  font-size: 1.4rem;
+  list-style: none;
+  margin-top: 3.5rem;
+
   &__item {
+    // setting parent element to position relative
+    // -- so pseudo element is positioned correctly
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
   }
 
-  &__link {
+  // normal state without any effects
+  &__item::before {
+    // have to specify content or else it won't show in browser
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    // scaleY only occurs in y direction (top-bottom)
+    // default is center
+    transform: scaleY(0);
+    // transform-origin: bottom;
+    // can set different settings for different props
+    // width .2s is the delay
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+      background-color 0.1s;
   }
+
+  &__item:hover::before,
+  &__item--active::before {
+    transform: scaleY(1);
+    // so hover expands to 100%
+    width: 100%;
+  }
+
+  &__item:active::before {
+    background-color: var(--color-primary-light);
+  }
+
+  &__link:link,
+  &__link:visited {
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem 3rem;
+    // position specified so z-index works
+    position: relative;
+    // link on top of before pseudo element
+    z-index: 10;
+
+    // look at html to figure out which parent element is the flex container
+    display: flex;
+    align-items: center;
+  }
+
+  // an example of how currentColor works
+  // &__link:hover {
+  //   color: orangered;
+  // }
 
   &__icon {
     width: 1.75rem;
     height: 1.75rem;
+    margin-right: 2rem;
+    // currentColor is color of parent element
+    // supported by many browsers
+    fill: currentColor;
   }
 }
 
